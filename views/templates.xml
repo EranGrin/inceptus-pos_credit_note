@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="ies_creditnote_assets" inherit_id="point_of_sale.assets" name="point_of_sale assets">
+        <xpath expr="//link[last()]" position="after">
+            <link rel="stylesheet" type="text/css" href="/ies_credit_note/static/src/css/ies_credit_note.css"/>
+
+        </xpath>
+        <xpath expr="//script[last()]" position="after">
+            <script type="text/javascript" src="/ies_credit_note/static/src/lib/barcode/jquery-barcode.js"></script>
+            <script type="text/javascript" src="/ies_credit_note/static/src/js/ies_credit_note.js"/>
+        </xpath>
+    </template>
+</odoo>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record id="ies_pos_order_credit_note" model="ir.ui.view">
+            <field name="name">ies.pos.order.credit.note</field>
+            <field name="model">pos.order</field>
+            <field name="inherit_id" ref='point_of_sale.view_pos_pos_form'/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='fiscal_position_id']" position="after">
+                    <field name="credit_note_id" attrs="{'invisible': [('credit_note_id', '=', False)]}" />
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

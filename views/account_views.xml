@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data>
+
+        <record id="ies_account_journal_credit_note" model="ir.ui.view">
+            <field name="name">ies.account.journal.credit.note</field>
+            <field name="model">account.journal</field>
+            <field name="inherit_id" ref="account.view_account_journal_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='journal_user']" position="after">
+                    <field name="is_credit_note"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

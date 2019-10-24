@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data>
+        <record id="ies_pos_giftcard_journal" model="account.journal">
+            <field name="name">Credit Notes</field>
+            <field name="code">CNJ</field>
+            <field name="type">bank</field>
+            <field name="sequence">21</field>
+            <field name="journal_user" eval='True' />
+            <field name="allow_return" eval='True'/>
+            <field name="is_credit_note" eval='True'/>
+        </record>
+
+        <record id="ies_product_category" model="product.category">
+            <field name="parent_id" ref="product.product_category_1"/>
+            <field name="name">POS</field>
+        </record>
+
+        <record id="ies_credit_note_product" model="product.product">
+            <field name="name">Credit Note</field>
+            <field name="categ_id" ref="ies_product_category"/>
+            <field name="standard_price">0.0</field>
+            <field name="list_price">0.0</field>
+            <field name="type">service</field>
+            <field name="uom_id" ref="product.product_uom_unit"/>
+            <field name="uom_po_id" ref="product.product_uom_unit"/>
+            <field name="description">POS Credit note product</field>
+            <field name="default_code">POSCN</field>
+            <field name="discount_type">f</field>
+            <!--<field name="available_in_pos">True</field>-->
+            <field name="barcode">POSCREDITNOTE</field>
+            <field name="is_coupon" eval='True'/>
+        </record>
+
+
+
+
+    </data>
+</odoo>

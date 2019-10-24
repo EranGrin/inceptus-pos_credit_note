@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="BarcodeDiv">
+        <table>
+            <tbody>
+                <tr>
+                    <td style='padding:2px 2px 2px 0px; text-align:center;'>
+                        <div id="xml_receipt_barcode" t-att-class='barcode' width='150' height='50'/>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </t>
+
+    <t t-name="RedeemButton">
+        <div class='control-button'>
+            <i class='fa fa-ticket' /> Reedem Code
+        </div>
+    </t>
+
+
+    <t t-extend="PosTicket">
+        <t t-jquery="div.pos-sale-ticket" t-operation="append">
+            <div style="text-align: center;" t-if='order.pos_mode==="return"'>
+                <span>Credit Note Code</span>
+                <div id="barcode_div" width="280" height="80">
+                    <img id="pos_order_code" t-attf-src="/report/barcode/EAN13/#{order.credit_note.name}/?width=250&amp;height=30"/>
+                    <!--<div id="barcode_div" width='250' height='30'/>-->
+                </div>
+                <t t-esc="order.credit_note.name"/>
+            </div>
+        </t>
+    </t>
+
+
+    <t t-extend="XmlReceipt">
+        <t t-jquery=".before-footer" t-operation="after">
+           <t t-if='receipt.barcode_src and order.pos_mode==="return"'>
+                <div>Credit Note Code</div>
+                <img t-att-src="receipt.barcode_cn_src"/>
+                <div><t t-esc='receipt.barcode_nr'/></div>
+            </t>
+        </t>
+    </t>
+
+
+</templates>
